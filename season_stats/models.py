@@ -70,7 +70,7 @@ class Match(models.Model):
 
     @classmethod
     def get_toss_decisions(cls, season):
-        return cls.objects.all() \
+        return cls.filter_by_season(season) \
                   .values('toss_decision') \
                   .annotate(toss_counts=Count('toss_decision'))
 
