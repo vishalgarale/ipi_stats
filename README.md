@@ -23,8 +23,8 @@ Then run compose file, followed with migration and loading the data given in CSV
     sudo docker-compose exec web python manage.py migrate
     sudo docker-compose exec web python manage.py load_data
     
-Working endpoint - 
-    http://13.229.134.176/api/stats/highest_margin_win_by_runs/
+Working endpoint IP - 
+    http://13.229.134.176/api/stats/
     
 Postman collection - 
     https://documenter.getpostman.com/view/474601/SW7XZ8ym?version=latest
