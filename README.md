@@ -22,3 +22,18 @@ Then run compose file, followed with migration and loading the data given in CSV
     sudo docker-compose up --build -d
     sudo docker-compose exec web python manage.py migrate
     sudo docker-compose exec web python manage.py load_data
+    
+Working endpoint - 
+    http://13.229.134.176/api/stats/highest_margin_win_by_runs/
+    
+Postman collection - 
+    https://documenter.getpostman.com/view/474601/SW7XZ8ym?version=latest
+
+Postman shared link - 
+    https://www.getpostman.com/collections/d2f11966fd6067487cc6
+  
+All API end points are POST call, and they will take (mostly) below 2 inputs (sample requests are in collection)
+
+    { "season": "2017", "limit": 1 }
+    
+Here limit is how much decending order top items you want.
