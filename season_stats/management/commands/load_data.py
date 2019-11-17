@@ -12,10 +12,14 @@ class Command(BaseCommand):
         match_generator = (Match(**m) for m in matches_data)
         Match.objects.bulk_create(match_generator)
 
+        print("Matches created")
+
         Delivery.objects.all().delete()
         deliveries_data = pd.read_csv("data/deliveries.csv").to_dict('records')
         deliveries_generator = (Delivery(**m) for m in deliveries_data)
         Delivery.objects.bulk_create(deliveries_generator)
+
+        print("Deliveries created")
 
         # 1st
         # Match.objects.filter(season="2017").values('winner').annotate(winner_count=Count('winner')).order_by('-winner_count')[:4]
