@@ -12,7 +12,7 @@ class Command(BaseCommand):
         match_generator = (Match(**m) for m in matches_data)
         Match.objects.bulk_create(match_generator)
 
-        Delivery.objects.all().delete
+        Delivery.objects.all().delete()
         deliveries_data = pd.read_csv("data/deliveries.csv").to_dict('records')
         deliveries_generator = (Delivery(**m) for m in deliveries_data)
         Delivery.objects.bulk_create(deliveries_generator)
