@@ -10,14 +10,14 @@ class Command(BaseCommand):
         Match.objects.all().delete()
         matches_data = pd.read_csv("data/matches.csv").to_dict('records')
         match_generator = (Match(**m) for m in matches_data)
-        Match.objects.bulk_create(match_generator)
+        Match.objects.bulk_create(match_generator, batch_size=200)
 
         print("Matches created")
 
         Delivery.objects.all().delete()
         deliveries_data = pd.read_csv("data/deliveries.csv").to_dict('records')
         deliveries_generator = (Delivery(**m) for m in deliveries_data)
-        Delivery.objects.bulk_create(deliveries_generator)
+        Delivery.objects.bulk_create(deliveries_generator, batch_size=200)
 
         print("Deliveries created")
 
