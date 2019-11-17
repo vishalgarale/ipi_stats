@@ -1,4 +1,4 @@
-# ipi_stats
+# ipl_stats
 IPL stats endpoints
 
 Install Docker, pull repository then
